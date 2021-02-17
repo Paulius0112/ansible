@@ -38,6 +38,9 @@ jobs:
           pip3 install ansible
           ansible --version | grep "python version"
 
+      - name: Ping all servers
+        run: ansible -i hosts/inventory.ini -m ping -vvv
+
       - name: Run deploy_services playbook
         uses: dawidd6/action-ansible-playbook@v2.2.0
         with:
