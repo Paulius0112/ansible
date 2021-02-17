@@ -41,7 +41,7 @@ jobs:
       - name: Run deploy_services playbook
         uses: dawidd6/action-ansible-playbook@v2.2.0
         with:
-          playbook: main.yaml
+          playbook: main.yml
           directory: ./
           key: ${{secrets.SSH_PRIVATE_KEY}}
           inventory: |
