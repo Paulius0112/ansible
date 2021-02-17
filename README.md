@@ -86,3 +86,4 @@ ansible-playbook -i hosts/inventory.ini main.yml
 <center><img src="images/syntropystack_network.png"></center>
 
 **Congratulations, your Postgres cluster is up and running!**
+
