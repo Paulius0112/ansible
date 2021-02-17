@@ -1,22 +1,29 @@
-name: Deploy pgpool with master slaves cluster
-
+name: Deploy LOG3 example
 
 on:
   push:
     branches:
-    - master
+      - master
 
 jobs:
-  build:
+  deploy-services:
+    name: Deploy Services
     runs-on: ubuntu-latest
-    container: 'centos:latest'
-    steps:
-    - uses: actions/checkout@v1
-    - name: Set up Python 3.7
-      uses: actions/setup-python@v1
-      with:
-        python-version: 3.7
 
-    - name: run exporters playbook
-      run: |
-        ansible-playbook -i hosts/inventory.ini main.yml
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+  
+      - name: Install Python 3.7
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.7"
+
+      - name: Check python3 version
+        run: python3 --version
+
+      - name: Install ansible with pip3
+        run: |
+          pip3 install ansible
+          ansible --version | grep "python version"
