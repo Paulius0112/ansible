@@ -39,7 +39,7 @@ jobs:
           ansible --version | grep "python version"
 
       - name: Ping all servers
-        run: ansible -i hosts/inventory.ini -m ping -vvv
+        run: ansible -i hosts/inventory.ini all -m ping -vvv
 
       - name: Run deploy_services playbook
         uses: dawidd6/action-ansible-playbook@v2.2.0
